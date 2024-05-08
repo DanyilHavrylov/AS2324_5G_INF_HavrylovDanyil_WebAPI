@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using AS2324_5G_INF_HavrylovDanyil_WebAPI.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Numerics;
 using System;
@@ -22,6 +21,33 @@ namespace AS2324_5G_INF_HavrylovDanyil_WebAPI.Controllers
             {
                 status_result = "KO";
                 message = "Il primo numero non è un multiplo intero del secondo";
+            }
+
+            return Json(new { output = result, status = status_result, message = message });
+        }
+
+        [HttpGet("Potenza")]
+        public JsonResult Potenza(int b, int esponente)
+        {
+            string status_result = "OK";
+            string message = "";
+            bool result = true;
+
+            if (esponente < 0)
+            {
+                status_result = "KO";
+                message = "L'esponente dato è negativo";
+                result = false;
+            }
+            else
+            {
+                int res = 1;
+                for (int i = 0; i < esponente; i++)
+                {
+                    res *= b;
+                }
+                
+                message = $"Il risultato della elevazione di {b} alla {esponente} equivale a {res}";
             }
 
             return Json(new { output = result, status = status_result, message = message });
