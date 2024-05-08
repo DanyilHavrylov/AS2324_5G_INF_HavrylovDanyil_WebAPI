@@ -1,0 +1,6 @@
+@AS2324_5G_INF_HavrylovDanyil_WebAPI_HostAddress = http://localhost:5077
+
+GET {{AS2324_5G_INF_HavrylovDanyil_WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
