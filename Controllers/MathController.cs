@@ -14,7 +14,7 @@ namespace AS2324_5G_INF_HavrylovDanyil_WebAPI.Controllers
         {
             string status_result = "OK";
             string message = "Il primo numero è un multiplo intero del secondo";
-            var result = num % factor == 0;
+            bool result = num % factor == 0;
 
             if (result == false)
             {
