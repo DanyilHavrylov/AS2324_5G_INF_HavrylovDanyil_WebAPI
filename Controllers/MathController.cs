@@ -68,5 +68,29 @@ namespace AS2324_5G_INF_HavrylovDanyil_WebAPI.Controllers
 
             return Json(new { output = result, status = status_result, message = message });
         }
+
+        [HttpGet("Ipotenusa")]
+        public JsonResult Ipotenusa(double cateto1, double cateto2)
+        {
+            string status_result = "OK";
+            string message = "";
+            bool result = true;
+
+            if (cateto1 <= 0 || cateto2 <= 0)
+            {
+                result = false;
+                status_result = "KO";
+                message = "Uno dei cateti dati è negativo o è uguale a 0";
+            }
+            else
+            {
+                double res = Math.Sqrt(cateto1 * cateto1 + cateto2 * cateto2);
+                message = $"L'ipotenusa con cateto: {cateto1} e cateto: {cateto2} equivale a {res}";
+            }
+
+
+            return Json(new { output = result, status = status_result, message = message });
+        }
+
     }
 }
